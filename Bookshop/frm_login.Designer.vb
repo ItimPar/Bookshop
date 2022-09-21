@@ -54,6 +54,7 @@ Partial Class frm_login
         Me.pwd_tb.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pwd_tb.Location = New System.Drawing.Point(177, 138)
         Me.pwd_tb.Name = "pwd_tb"
+        Me.pwd_tb.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.pwd_tb.Size = New System.Drawing.Size(212, 38)
         Me.pwd_tb.TabIndex = 4
         '

@@ -7,7 +7,9 @@ Public Class frm_login
         Dim dt As DataTable = New DataTable()
         adap.Fill(dt)
         If dt.Rows.Count = 1 Then
-
+            MsgBox("Ok")
+        Else
+            MsgBox("ชื่อหรือรหัสไม่ถูก")
         End If
     End Sub
 End Class
