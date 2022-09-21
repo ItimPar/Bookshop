@@ -19,4 +19,10 @@
         frm_book.Dock = DockStyle.Fill
         frm_book.Show()
     End Sub
+
+    Private Sub SaleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaleToolStripMenuItem.Click
+        frm_sale.MdiParent = frm_main.ActiveForm
+        frm_sale.Dock = DockStyle.Fill
+        frm_sale.Show()
+    End Sub
 End Class
