@@ -13,4 +13,10 @@
         frm_customer.Dock = DockStyle.Fill
         frm_customer.Show()
     End Sub
+
+    Private Sub BookToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookToolStripMenuItem.Click
+        frm_book.MdiParent = frm_main.ActiveForm
+        frm_book.Dock = DockStyle.Fill
+        frm_book.Show()
+    End Sub
 End Class
