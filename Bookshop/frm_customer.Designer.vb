@@ -23,12 +23,12 @@ Partial Class frm_customer
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_customer))
         Dim Cus_idLabel As System.Windows.Forms.Label
         Dim Cus_nameLabel As System.Windows.Forms.Label
         Dim Cus_lastnameLabel As System.Windows.Forms.Label
         Dim Cus_usernameLabel As System.Windows.Forms.Label
         Dim Cus_pwdLabel As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frm_customer))
         Me.BookshopDataSet = New Bookshop.BookshopDataSet()
         Me.CustomerBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CustomerTableAdapter = New Bookshop.BookshopDataSetTableAdapters.customerTableAdapter()
@@ -48,6 +48,10 @@ Partial Class frm_customer
         Me.CustomerBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.DEL = New System.Windows.Forms.ToolStripButton()
         Me.EDIT = New System.Windows.Forms.ToolStripButton()
+        Me.BookshopDataSet1 = New Bookshop.BookshopDataSet1()
+        Me.CustomerBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CustomerTableAdapter1 = New Bookshop.BookshopDataSet1TableAdapters.customerTableAdapter()
+        Me.TableAdapterManager1 = New Bookshop.BookshopDataSet1TableAdapters.TableAdapterManager()
         Me.CustomerDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,53 +72,10 @@ Partial Class frm_customer
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CustomerBindingNavigator.SuspendLayout()
+        CType(Me.BookshopDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CustomerBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CustomerDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Cus_idLabel
-        '
-        Cus_idLabel.AutoSize = True
-        Cus_idLabel.Location = New System.Drawing.Point(173, 98)
-        Cus_idLabel.Name = "Cus_idLabel"
-        Cus_idLabel.Size = New System.Drawing.Size(38, 13)
-        Cus_idLabel.TabIndex = 2
-        Cus_idLabel.Text = "cus id:"
-        '
-        'Cus_nameLabel
-        '
-        Cus_nameLabel.AutoSize = True
-        Cus_nameLabel.Location = New System.Drawing.Point(173, 124)
-        Cus_nameLabel.Name = "Cus_nameLabel"
-        Cus_nameLabel.Size = New System.Drawing.Size(56, 13)
-        Cus_nameLabel.TabIndex = 4
-        Cus_nameLabel.Text = "cus name:"
-        '
-        'Cus_lastnameLabel
-        '
-        Cus_lastnameLabel.AutoSize = True
-        Cus_lastnameLabel.Location = New System.Drawing.Point(173, 150)
-        Cus_lastnameLabel.Name = "Cus_lastnameLabel"
-        Cus_lastnameLabel.Size = New System.Drawing.Size(72, 13)
-        Cus_lastnameLabel.TabIndex = 6
-        Cus_lastnameLabel.Text = "cus lastname:"
-        '
-        'Cus_usernameLabel
-        '
-        Cus_usernameLabel.AutoSize = True
-        Cus_usernameLabel.Location = New System.Drawing.Point(173, 176)
-        Cus_usernameLabel.Name = "Cus_usernameLabel"
-        Cus_usernameLabel.Size = New System.Drawing.Size(76, 13)
-        Cus_usernameLabel.TabIndex = 8
-        Cus_usernameLabel.Text = "cus username:"
-        '
-        'Cus_pwdLabel
-        '
-        Cus_pwdLabel.AutoSize = True
-        Cus_pwdLabel.Location = New System.Drawing.Point(173, 202)
-        Cus_pwdLabel.Name = "Cus_pwdLabel"
-        Cus_pwdLabel.Size = New System.Drawing.Size(50, 13)
-        Cus_pwdLabel.TabIndex = 10
-        Cus_pwdLabel.Text = "cus pwd:"
         '
         'BookshopDataSet
         '
@@ -207,7 +168,6 @@ Partial Class frm_customer
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
         Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
         Me.BindingNavigatorPositionItem.Text = "0"
@@ -267,15 +227,37 @@ Partial Class frm_customer
         Me.EDIT.Size = New System.Drawing.Size(23, 22)
         Me.EDIT.Text = "ToolStripButton1"
         '
+        'BookshopDataSet1
+        '
+        Me.BookshopDataSet1.DataSetName = "BookshopDataSet1"
+        Me.BookshopDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CustomerBindingSource1
+        '
+        Me.CustomerBindingSource1.DataMember = "customer"
+        Me.CustomerBindingSource1.DataSource = Me.BookshopDataSet1
+        '
+        'CustomerTableAdapter1
+        '
+        Me.CustomerTableAdapter1.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.bookTableAdapter = Nothing
+        Me.TableAdapterManager1.customerTableAdapter = Me.CustomerTableAdapter1
+        Me.TableAdapterManager1.tb_employeeTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Bookshop.BookshopDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'CustomerDataGridView
         '
         Me.CustomerDataGridView.AutoGenerateColumns = False
         Me.CustomerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.CustomerDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5})
-        Me.CustomerDataGridView.DataSource = Me.CustomerBindingSource
-        Me.CustomerDataGridView.Location = New System.Drawing.Point(496, 65)
+        Me.CustomerDataGridView.DataSource = Me.CustomerBindingSource1
+        Me.CustomerDataGridView.Location = New System.Drawing.Point(360, 52)
         Me.CustomerDataGridView.Name = "CustomerDataGridView"
-        Me.CustomerDataGridView.Size = New System.Drawing.Size(546, 233)
+        Me.CustomerDataGridView.Size = New System.Drawing.Size(540, 277)
         Me.CustomerDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -308,42 +290,87 @@ Partial Class frm_customer
         Me.DataGridViewTextBoxColumn5.HeaderText = "cus_pwd"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         '
+        'Cus_idLabel
+        '
+        Cus_idLabel.AutoSize = True
+        Cus_idLabel.Location = New System.Drawing.Point(92, 119)
+        Cus_idLabel.Name = "Cus_idLabel"
+        Cus_idLabel.Size = New System.Drawing.Size(38, 13)
+        Cus_idLabel.TabIndex = 2
+        Cus_idLabel.Text = "cus id:"
+        '
         'Cus_idTextBox
         '
-        Me.Cus_idTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cus_id", True))
-        Me.Cus_idTextBox.Location = New System.Drawing.Point(255, 95)
+        Me.Cus_idTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource1, "cus_id", True))
+        Me.Cus_idTextBox.Location = New System.Drawing.Point(174, 116)
         Me.Cus_idTextBox.Name = "Cus_idTextBox"
         Me.Cus_idTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Cus_idTextBox.TabIndex = 3
         '
+        'Cus_nameLabel
+        '
+        Cus_nameLabel.AutoSize = True
+        Cus_nameLabel.Location = New System.Drawing.Point(92, 145)
+        Cus_nameLabel.Name = "Cus_nameLabel"
+        Cus_nameLabel.Size = New System.Drawing.Size(56, 13)
+        Cus_nameLabel.TabIndex = 4
+        Cus_nameLabel.Text = "cus name:"
+        '
         'Cus_nameTextBox
         '
-        Me.Cus_nameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cus_name", True))
-        Me.Cus_nameTextBox.Location = New System.Drawing.Point(255, 121)
+        Me.Cus_nameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource1, "cus_name", True))
+        Me.Cus_nameTextBox.Location = New System.Drawing.Point(174, 142)
         Me.Cus_nameTextBox.Name = "Cus_nameTextBox"
         Me.Cus_nameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Cus_nameTextBox.TabIndex = 5
         '
+        'Cus_lastnameLabel
+        '
+        Cus_lastnameLabel.AutoSize = True
+        Cus_lastnameLabel.Location = New System.Drawing.Point(92, 171)
+        Cus_lastnameLabel.Name = "Cus_lastnameLabel"
+        Cus_lastnameLabel.Size = New System.Drawing.Size(72, 13)
+        Cus_lastnameLabel.TabIndex = 6
+        Cus_lastnameLabel.Text = "cus lastname:"
+        '
         'Cus_lastnameTextBox
         '
-        Me.Cus_lastnameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cus_lastname", True))
-        Me.Cus_lastnameTextBox.Location = New System.Drawing.Point(255, 147)
+        Me.Cus_lastnameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource1, "cus_lastname", True))
+        Me.Cus_lastnameTextBox.Location = New System.Drawing.Point(174, 168)
         Me.Cus_lastnameTextBox.Name = "Cus_lastnameTextBox"
         Me.Cus_lastnameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Cus_lastnameTextBox.TabIndex = 7
         '
+        'Cus_usernameLabel
+        '
+        Cus_usernameLabel.AutoSize = True
+        Cus_usernameLabel.Location = New System.Drawing.Point(92, 197)
+        Cus_usernameLabel.Name = "Cus_usernameLabel"
+        Cus_usernameLabel.Size = New System.Drawing.Size(76, 13)
+        Cus_usernameLabel.TabIndex = 8
+        Cus_usernameLabel.Text = "cus username:"
+        '
         'Cus_usernameTextBox
         '
-        Me.Cus_usernameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cus_username", True))
-        Me.Cus_usernameTextBox.Location = New System.Drawing.Point(255, 173)
+        Me.Cus_usernameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource1, "cus_username", True))
+        Me.Cus_usernameTextBox.Location = New System.Drawing.Point(174, 194)
         Me.Cus_usernameTextBox.Name = "Cus_usernameTextBox"
         Me.Cus_usernameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Cus_usernameTextBox.TabIndex = 9
         '
+        'Cus_pwdLabel
+        '
+        Cus_pwdLabel.AutoSize = True
+        Cus_pwdLabel.Location = New System.Drawing.Point(92, 223)
+        Cus_pwdLabel.Name = "Cus_pwdLabel"
+        Cus_pwdLabel.Size = New System.Drawing.Size(50, 13)
+        Cus_pwdLabel.TabIndex = 10
+        Cus_pwdLabel.Text = "cus pwd:"
+        '
         'Cus_pwdTextBox
         '
-        Me.Cus_pwdTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource, "cus_pwd", True))
-        Me.Cus_pwdTextBox.Location = New System.Drawing.Point(255, 199)
+        Me.Cus_pwdTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.CustomerBindingSource1, "cus_pwd", True))
+        Me.Cus_pwdTextBox.Location = New System.Drawing.Point(174, 220)
         Me.Cus_pwdTextBox.Name = "Cus_pwdTextBox"
         Me.Cus_pwdTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Cus_pwdTextBox.TabIndex = 11
@@ -372,6 +399,8 @@ Partial Class frm_customer
         CType(Me.CustomerBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CustomerBindingNavigator.ResumeLayout(False)
         Me.CustomerBindingNavigator.PerformLayout()
+        CType(Me.BookshopDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CustomerBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -395,6 +424,12 @@ Partial Class frm_customer
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents CustomerBindingNavigatorSaveItem As ToolStripButton
+    Friend WithEvents DEL As ToolStripButton
+    Friend WithEvents EDIT As ToolStripButton
+    Friend WithEvents BookshopDataSet1 As BookshopDataSet1
+    Friend WithEvents CustomerBindingSource1 As BindingSource
+    Friend WithEvents CustomerTableAdapter1 As BookshopDataSet1TableAdapters.customerTableAdapter
+    Friend WithEvents TableAdapterManager1 As BookshopDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents CustomerDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
@@ -406,6 +441,4 @@ Partial Class frm_customer
     Friend WithEvents Cus_lastnameTextBox As TextBox
     Friend WithEvents Cus_usernameTextBox As TextBox
     Friend WithEvents Cus_pwdTextBox As TextBox
-    Friend WithEvents DEL As ToolStripButton
-    Friend WithEvents EDIT As ToolStripButton
 End Class

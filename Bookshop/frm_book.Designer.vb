@@ -33,18 +33,24 @@ Partial Class frm_book
         Me.BookTableAdapter = New Bookshop.BookshopDataSetTableAdapters.bookTableAdapter()
         Me.TableAdapterManager = New Bookshop.BookshopDataSetTableAdapters.TableAdapterManager()
         Me.BookBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.BookBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.BookshopDataSet1 = New Bookshop.BookshopDataSet1()
+        Me.BookBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BookTableAdapter1 = New Bookshop.BookshopDataSet1TableAdapters.bookTableAdapter()
+        Me.TableAdapterManager1 = New Bookshop.BookshopDataSet1TableAdapters.TableAdapterManager()
         Me.BookDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -54,8 +60,6 @@ Partial Class frm_book
         Me.Book_nameTextBox = New System.Windows.Forms.TextBox()
         Me.Book_priceTextBox = New System.Windows.Forms.TextBox()
         Me.Book_amountTextBox = New System.Windows.Forms.TextBox()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Book_idLabel = New System.Windows.Forms.Label()
         Book_nameLabel = New System.Windows.Forms.Label()
         Book_priceLabel = New System.Windows.Forms.Label()
@@ -64,6 +68,8 @@ Partial Class frm_book
         CType(Me.BookBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.BookBindingNavigator.SuspendLayout()
+        CType(Me.BookshopDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BookBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BookDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -106,6 +112,31 @@ Partial Class frm_book
         Me.BookBindingNavigator.TabIndex = 0
         Me.BookBindingNavigator.Text = "BindingNavigator1"
         '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        '
         'BindingNavigatorMoveFirstItem
         '
         Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -138,17 +169,10 @@ Partial Class frm_book
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 15)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -156,7 +180,7 @@ Partial Class frm_book
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -165,49 +189,71 @@ Partial Class frm_book
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'BookBindingNavigatorSaveItem
         '
         Me.BookBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.BookBindingNavigatorSaveItem.Image = CType(resources.GetObject("BookBindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.BookBindingNavigatorSaveItem.Name = "BookBindingNavigatorSaveItem"
-        Me.BookBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.BookBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.BookBindingNavigatorSaveItem.Text = "Save Data"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton1.Text = "ToolStripButton1"
+        '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Text = "ToolStripButton2"
+        '
+        'BookshopDataSet1
+        '
+        Me.BookshopDataSet1.DataSetName = "BookshopDataSet1"
+        Me.BookshopDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'BookBindingSource1
+        '
+        Me.BookBindingSource1.DataMember = "book"
+        Me.BookBindingSource1.DataSource = Me.BookshopDataSet1
+        '
+        'BookTableAdapter1
+        '
+        Me.BookTableAdapter1.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.bookTableAdapter = Me.BookTableAdapter1
+        Me.TableAdapterManager1.customerTableAdapter = Nothing
+        Me.TableAdapterManager1.tb_employeeTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Bookshop.BookshopDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'BookDataGridView
         '
         Me.BookDataGridView.AutoGenerateColumns = False
         Me.BookDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.BookDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
-        Me.BookDataGridView.DataSource = Me.BookBindingSource
-        Me.BookDataGridView.Location = New System.Drawing.Point(321, 84)
+        Me.BookDataGridView.DataSource = Me.BookBindingSource1
+        Me.BookDataGridView.Location = New System.Drawing.Point(299, 63)
         Me.BookDataGridView.Name = "BookDataGridView"
-        Me.BookDataGridView.Size = New System.Drawing.Size(443, 220)
+        Me.BookDataGridView.Size = New System.Drawing.Size(440, 291)
         Me.BookDataGridView.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
@@ -237,7 +283,7 @@ Partial Class frm_book
         'Book_idLabel
         '
         Book_idLabel.AutoSize = True
-        Book_idLabel.Location = New System.Drawing.Point(86, 114)
+        Book_idLabel.Location = New System.Drawing.Point(68, 157)
         Book_idLabel.Name = "Book_idLabel"
         Book_idLabel.Size = New System.Drawing.Size(45, 13)
         Book_idLabel.TabIndex = 2
@@ -245,8 +291,8 @@ Partial Class frm_book
         '
         'Book_idTextBox
         '
-        Me.Book_idTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource, "book_id", True))
-        Me.Book_idTextBox.Location = New System.Drawing.Point(164, 111)
+        Me.Book_idTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource1, "book_id", True))
+        Me.Book_idTextBox.Location = New System.Drawing.Point(146, 154)
         Me.Book_idTextBox.Name = "Book_idTextBox"
         Me.Book_idTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Book_idTextBox.TabIndex = 3
@@ -254,7 +300,7 @@ Partial Class frm_book
         'Book_nameLabel
         '
         Book_nameLabel.AutoSize = True
-        Book_nameLabel.Location = New System.Drawing.Point(86, 140)
+        Book_nameLabel.Location = New System.Drawing.Point(68, 183)
         Book_nameLabel.Name = "Book_nameLabel"
         Book_nameLabel.Size = New System.Drawing.Size(63, 13)
         Book_nameLabel.TabIndex = 4
@@ -262,8 +308,8 @@ Partial Class frm_book
         '
         'Book_nameTextBox
         '
-        Me.Book_nameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource, "book_name", True))
-        Me.Book_nameTextBox.Location = New System.Drawing.Point(164, 137)
+        Me.Book_nameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource1, "book_name", True))
+        Me.Book_nameTextBox.Location = New System.Drawing.Point(146, 180)
         Me.Book_nameTextBox.Name = "Book_nameTextBox"
         Me.Book_nameTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Book_nameTextBox.TabIndex = 5
@@ -271,7 +317,7 @@ Partial Class frm_book
         'Book_priceLabel
         '
         Book_priceLabel.AutoSize = True
-        Book_priceLabel.Location = New System.Drawing.Point(86, 166)
+        Book_priceLabel.Location = New System.Drawing.Point(68, 209)
         Book_priceLabel.Name = "Book_priceLabel"
         Book_priceLabel.Size = New System.Drawing.Size(60, 13)
         Book_priceLabel.TabIndex = 6
@@ -279,8 +325,8 @@ Partial Class frm_book
         '
         'Book_priceTextBox
         '
-        Me.Book_priceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource, "book_price", True))
-        Me.Book_priceTextBox.Location = New System.Drawing.Point(164, 163)
+        Me.Book_priceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource1, "book_price", True))
+        Me.Book_priceTextBox.Location = New System.Drawing.Point(146, 206)
         Me.Book_priceTextBox.Name = "Book_priceTextBox"
         Me.Book_priceTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Book_priceTextBox.TabIndex = 7
@@ -288,7 +334,7 @@ Partial Class frm_book
         'Book_amountLabel
         '
         Book_amountLabel.AutoSize = True
-        Book_amountLabel.Location = New System.Drawing.Point(86, 192)
+        Book_amountLabel.Location = New System.Drawing.Point(68, 235)
         Book_amountLabel.Name = "Book_amountLabel"
         Book_amountLabel.Size = New System.Drawing.Size(72, 13)
         Book_amountLabel.TabIndex = 8
@@ -296,29 +342,11 @@ Partial Class frm_book
         '
         'Book_amountTextBox
         '
-        Me.Book_amountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource, "book_amount", True))
-        Me.Book_amountTextBox.Location = New System.Drawing.Point(164, 189)
+        Me.Book_amountTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BookBindingSource1, "book_amount", True))
+        Me.Book_amountTextBox.Location = New System.Drawing.Point(146, 232)
         Me.Book_amountTextBox.Name = "Book_amountTextBox"
         Me.Book_amountTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Book_amountTextBox.TabIndex = 9
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton2.Text = "ToolStripButton2"
         '
         'frm_book
         '
@@ -342,6 +370,8 @@ Partial Class frm_book
         CType(Me.BookBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BookBindingNavigator.ResumeLayout(False)
         Me.BookBindingNavigator.PerformLayout()
+        CType(Me.BookshopDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BookBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BookDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -365,13 +395,17 @@ Partial Class frm_book
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
     Friend WithEvents BookBindingNavigatorSaveItem As ToolStripButton
+    Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents ToolStripButton2 As ToolStripButton
+    Friend WithEvents BookshopDataSet1 As BookshopDataSet1
+    Friend WithEvents BookBindingSource1 As BindingSource
+    Friend WithEvents BookTableAdapter1 As BookshopDataSet1TableAdapters.bookTableAdapter
+    Friend WithEvents TableAdapterManager1 As BookshopDataSet1TableAdapters.TableAdapterManager
     Friend WithEvents BookDataGridView As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents ToolStripButton1 As ToolStripButton
-    Friend WithEvents ToolStripButton2 As ToolStripButton
     Friend WithEvents Book_idTextBox As TextBox
     Friend WithEvents Book_nameTextBox As TextBox
     Friend WithEvents Book_priceTextBox As TextBox

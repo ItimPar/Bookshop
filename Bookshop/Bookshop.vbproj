@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookshopDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BookshopDataSet11.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookshopDataSet11.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frm_book.Designer.vb">
       <DependentUpon>frm_book.vb</DependentUpon>
     </Compile>
@@ -159,6 +164,17 @@
     </None>
     <None Include="BookshopDataSet.xss">
       <DependentUpon>BookshopDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BookshopDataSet11.xsc">
+      <DependentUpon>BookshopDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="BookshopDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookshopDataSet11.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BookshopDataSet11.xss">
+      <DependentUpon>BookshopDataSet11.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

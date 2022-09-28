@@ -204,11 +204,11 @@ Partial Class frm_sale
         '
         'buy_btn
         '
-        Me.buy_btn.Location = New System.Drawing.Point(940, 474)
+        Me.buy_btn.Location = New System.Drawing.Point(914, 445)
         Me.buy_btn.Name = "buy_btn"
         Me.buy_btn.Size = New System.Drawing.Size(82, 50)
         Me.buy_btn.TabIndex = 13
-        Me.buy_btn.Text = "Buy"
+        Me.buy_btn.Text = "Sell"
         Me.buy_btn.UseVisualStyleBackColor = True
         '
         'frm_sale
