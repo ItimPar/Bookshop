@@ -42,7 +42,7 @@ Public Class frm_sale
             Dim adap As SqlDataAdapter = New SqlDataAdapter(cmd)
             Dim dt As DataTable = New DataTable()
             adap.Fill(dt)
-            If dt.Rows.Count > 0 Then
+            If dt.Rows.Count = 1 Then
                 conn.Open()
                 Dim cmd2 As SqlCommand = New SqlCommand("UPDATE book SET book_amount = '" &
                                                         dt.Rows(0).Item("book_amount") - dataRow.Cells("b_amount").Value &
@@ -52,7 +52,7 @@ Public Class frm_sale
                 End If
                 conn.Close()
             End If
-            DataGridSale.Rows.Clear()
         Next
+        DataGridSale.Rows.Clear()
     End Sub
 End Class
