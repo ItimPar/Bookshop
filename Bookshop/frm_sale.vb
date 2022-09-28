@@ -38,19 +38,21 @@ Public Class frm_sale
     Private Sub buy_btn_Click(sender As Object, e As EventArgs) Handles buy_btn.Click
         For Each dataRow As DataGridViewRow In DataGridSale.Rows
             Dim conn As SqlConnection = New SqlConnection("Data Source=344_22\SQLEXPRESS;Initial Catalog=Bookshop;Integrated Security=True")
-            Dim cmd As SqlCommand = New SqlCommand("select * from book where book_id =" & dataRow.Cells("b_ID").Value, conn)
+            Dim cmd As SqlCommand = New SqlCommand("select * from book where book_id = '" & dataRow.Cells("b_ID").Value & "'", conn)
             Dim adap As SqlDataAdapter = New SqlDataAdapter(cmd)
             Dim dt As DataTable = New DataTable()
             adap.Fill(dt)
             If dt.Rows.Count > 0 Then
-                Dim conn2 As SqlConnection = New SqlConnection("Data Source=344_22\SQLEXPRESS;Initial Catalog=Bookshop;Integrated Security=True")
-                Dim cmd2 As SqlCommand = New SqlCommand("UPDATE book SET book_amount = " & dt.Rows(0).Item("book_amount") - dataRow.Cells("b_amount").Value & " WHERE book_id = " & dataRow.Cells("b_ID").Value, conn2)
-                conn2.Open()
+                conn.Open()
+                Dim cmd2 As SqlCommand = New SqlCommand("UPDATE book SET book_amount = '" &
+                                                        dt.Rows(0).Item("book_amount") - dataRow.Cells("b_amount").Value &
+                                                        "' WHERE book_id =" & dt.Rows(0).Item("book_id"), conn)
                 If cmd2.ExecuteNonQuery() Then
-                    MsgBox("Edited")
+                    MsgBox("Updated Book Amount")
                 End If
-                conn2.Close()
+                conn.Close()
             End If
+            DataGridSale.Rows.Clear()
         Next
     End Sub
 End Class
